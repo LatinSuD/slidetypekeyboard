@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
+ * Copyright (C) 2009 Alejandro Grijalba
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -82,7 +83,7 @@ public class SlideTypeKeyboard extends InputMethodService
      * But it seems other keybards dont do it.
      */
 
-    static final boolean PROCESS_HARD_KEYS = true;
+    static final boolean PROCESS_HARD_KEYS = false;
     
     private LatinKeyboardView mInputView;
     private CandidateView mCandidateView;
@@ -697,23 +698,6 @@ public class SlideTypeKeyboard extends InputMethodService
     	}
     	
     	return primaryCode;
-    	
-/*    	
-    	if (primaryCode=='*') {
-    		primaryCode=10;
-    	} else if (primaryCode==' ') {
-    		primaryCode=11;
-    	}/ * else if (primaryCode==0) {
-    		// happens when sliding out of keys
-    		return -1;
-    	}* / else if (primaryCode >= '0' && primaryCode <= '9') {
-    		primaryCode-=48;
-    	} else {
-    		return primaryCode;
-    	}
-
-   		return latinKeys[primaryCode].charAt(direction);
-   		*/
     }
     
     /* TODO: ntilde */

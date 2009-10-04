@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
+ * Copyright (C) 2009 Alejandro Grijalba
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -27,6 +28,10 @@ import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
 import android.util.AttributeSet;
 
+/* This class is the View of the keyboard.
+ * Currently extends KeyboardView class.
+ * It's main duty is to receive touch events.
+ */
 public class LatinKeyboardView extends KeyboardView {
 
     static final int KEYCODE_OPTIONS = -100;
@@ -79,7 +84,6 @@ public class LatinKeyboardView extends KeyboardView {
     	}
     }
     
-//    static int keysAtOnce;
 
     public LatinKeyboardView(Context context, AttributeSet attrs) {
       super(context, attrs);
@@ -92,11 +96,12 @@ public class LatinKeyboardView extends KeyboardView {
     }
         
 
-	// Esto esta bien, pero solo para unas pocas teclas concretas
+	// 
     @Override
     protected boolean onLongPress(Key key) {    	
         if (key.codes[0] == '\n') {
         	direction=-1;
+        	// force launch options activity
             getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null);
             return true;
         } else {
@@ -105,10 +110,10 @@ public class LatinKeyboardView extends KeyboardView {
     }
 
     
-/*
-    // parece que las swipe no van muy finas
-    protected void swipeUp() {
-    }
+    /*
+    // swipe functions seem not to work here
+    	protected void swipeUp() {
+    	}
     */
     
     public float downX;
@@ -190,66 +195,9 @@ public class LatinKeyboardView extends KeyboardView {
     		}
     	}
     	
-		// aqui es donde luego llama a todo lo demas
+		// after we return here the service will get notified, etc
 		return super.onTouchEvent(me);
-}   
+    }   
 
-   /*
-    @Override
-    public void onDraw(Canvas canvas) {
-    	canvas.drawColor(Color.BLACK);
-    	super.onDraw(canvas);
-    }
-    
-    	Paint mPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
-    	mPaint.setColor(Color.WHITE);
-    	Keyboard kbd=getKeyboard();
-    	//Keyboard.Row rr=kbd.
-    	List<Keyboard.Key> keys = kbd.getKeys();
-    	ListIterator<Keyboard.Key> it=keys.listIterator();
-    	
-    	super.onDraw(canvas);
-    	
-    	char[] letter= new char[1];
-    	Rect bounds=new Rect();
-    	
-    	while (it.hasNext() 
-    //	&& maxi++<5
-    ) {
-    			LatinKeyboard.LatinKey key=(LatinKeyboard.LatinKey)it.next();
-    		//	paint.Style.
-    			//canvas.drawRect(r, paint)
-    			//key.
-    			
-    	    	//android.os.Debug.waitForDebugger();    			
-    			//mPaint.getTextBounds(txt, 0, txt.length(), bounds);
-    			mPaint.setTextSize(key.height/3);
-    			
-    				if (key.fancyLabel != null) {
-    					int keyX=key.x+key.width/2;
-    					int keyY=key.y+key.height/2;
-    					int tW0,tH0,tMX,tMY;
-    					
-	    				letter[0]=key.fancyLabel.charAt(0);
-	    				mPaint.getTextBounds(letter, 0, 1, bounds);
-	    				tW0=bounds.right-bounds.left;
-	    				tMX=(bounds.right-bounds.left)/2;
-	    				tH0=bounds.top-bounds.bottom;
-	    				tMY=(bounds.top-bounds.bottom)/2;
-	    				
-	    				mPaint.setColor(Color.RED);
-	    				bounds.offset(keyX-tMX, keyY-tMY);
-	    				canvas.drawRect(bounds, mPaint);
-	    				mPaint.setStyle(Style.STROKE);
-	    				canvas.drawRect(key.x, key.y, key.x+key.width, key.y+key.height, mPaint);
-	    				mPaint.setColor(Color.WHITE);
-	    				canvas.drawText(key.fancyLabel, 0, 1, (float)keyX-tMX, (float)keyY-tMY, mPaint);    	        			
-    					
-    					
-    				}
-    	}
-    	
-    }
-    */	
   
 }

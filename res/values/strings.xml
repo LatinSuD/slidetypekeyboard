@@ -3,6 +3,7 @@
 /*
 **
 ** Copyright 2008, The Android Open Source Project
+** Copyright (C) 2009 Alejandro Grijalba
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -40,9 +41,21 @@
     <string name="alternates_for_7">ř§śšß</string>
     <string name="alternates_for_8">ťúùûůü</string>
     <string name="alternates_for_9">ýÿźžż</string>
+
+    <!-- labels for letter keys -->
+    <string name="letters_for_1">"1    "</string>
+    <string name="letters_for_2">2abc\u00e7</string>
+    <string name="letters_for_3">3def </string>
+    <string name="letters_for_4">4ghi </string>
+    <string name="letters_for_5">5jkl </string>
+    <string name="letters_for_6">6mno </string>
+    <string name="letters_for_7">7pqrs</string>
+    <string name="letters_for_8">8tuv </string>
+    <string name="letters_for_9">9wxyz</string>
+    <string name="letters_for_ast">*-/_@</string>
+    <string name="letters_for_0">0.!,?</string>
     
     <!--  Labels on symbol keys -->
-    <string name="symbols_for_0">0.!,?</string>
     <string name="symbols_for_1">1[#]&amp;</string>
     <string name="symbols_for_2">2(=)+</string>
     <string name="symbols_for_3">"3`\'´\""</string>
@@ -53,5 +66,6 @@
     <string name="symbols_for_8">8&lt;^&gt;$</string>
     <string name="symbols_for_9">9|¡¿…</string>
     <string name="symbols_for_ast">*-/_@</string>
+    <string name="symbols_for_0">0.!,?</string>
     
 </resources>

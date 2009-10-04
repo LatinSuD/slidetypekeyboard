@@ -3,6 +3,7 @@
 /* 
 **
 ** Copyright 2008, The Android Open Source Project
+** Copyright (C) 2009 Alejandro Grijalba
 **
 ** Licensed under the Apache License, Version 2.0 (the "License"); 
 ** you may not use this file except in compliance with the License. 
@@ -26,14 +27,14 @@
     >
 
     <Row android:rowEdgeFlags="top"> 
-        <Key android:codes="49" android:keyLabel="1    " android:horizontalGap="6%p" android:keyEdgeFlags="left"/>
-		<Key android:codes="50" android:keyLabel="2abc\u00e7"
+        <Key android:codes="49" android:keyLabel="@string/letters_for_1" android:horizontalGap="6%p" android:keyEdgeFlags="left"/>
+		<Key android:codes="50" android:keyLabel="@string/letters_for_2"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_2"/>
-        <Key android:codes="51" android:keyLabel="3def"
+        <Key android:codes="51" android:keyLabel="@string/letters_for_3"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_3"/>
-        <Key android:codes="42" android:keyLabel="*-/_@"/>
+        <Key android:codes="42" android:keyLabel="@string/letters_for_ast"/>
         <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" 
                 android:keyWidth="15%p" android:keyEdgeFlags="right"
                 android:isRepeatable="true" 
@@ -42,31 +43,31 @@
     </Row>
     
     <Row>
-        <Key android:codes="52" android:keyLabel="4ghi"
+        <Key android:codes="52" android:keyLabel="@string/letters_for_4"
         	android:horizontalGap="6%p" android:keyEdgeFlags="left"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_4"/>        	
-        <Key android:codes="53" android:keyLabel="5jkl"
+        <Key android:codes="53" android:keyLabel="@string/letters_for_5"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_5"/>
-        <Key android:codes="54" android:keyLabel="6mno\u00f1"
+        <Key android:codes="54" android:keyLabel="@string/letters_for_6"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_6"/>
-        <Key android:codes="48" android:keyLabel="0.!,?"/> 
+        <Key android:codes="48" android:keyLabel="@string/letters_for_0"/> 
         <Key android:codes="-1" android:keyIcon="@drawable/sym_keyboard_shift" 
                 android:keyWidth="15%p" android:isModifier="true" android:horizontalGap="2%p"
                 android:keyEdgeFlags="right"/>
     </Row>
     
     <Row android:verticalGap="4%p">
-        <Key android:codes="55" android:keyLabel="7pqrs"
+        <Key android:codes="55" android:keyLabel="@string/letters_for_7"
         	android:horizontalGap="6%p" android:keyEdgeFlags="left"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_7"/>
-        <Key android:codes="56" android:keyLabel="8tuv"
+        <Key android:codes="56" android:keyLabel="@string/letters_for_8"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_8"/> 
-        <Key android:codes="57" android:keyLabel="9wxyz"
+        <Key android:codes="57" android:keyLabel="@string/letters_for_9"
 			android:popupKeyboard="@xml/kbd_popup_template"
 			android:popupCharacters="@string/alternates_for_9"/>
         <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space"/>

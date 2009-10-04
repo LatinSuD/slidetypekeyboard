@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
+ * Copyright (C) 2009 Alejandro Grijalba
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -25,7 +26,10 @@ import android.graphics.PorterDuff.Mode;
 import android.inputmethodservice.Keyboard;
 import android.view.inputmethod.EditorInfo;
  
-
+/*
+ * This class holds the data structures for the keyboard
+ * Does not perform any funny task 
+ */
 public class LatinKeyboard extends Keyboard {
 
     private Key mEnterKey; 
@@ -117,18 +121,7 @@ public class LatinKeyboard extends Keyboard {
           //  iconPreview = new ColorDrawable(0xFF000000+cckk*0x40);
           //
         }
-        
-        /**
-         * Overriding this method so that we can reduce the target area for the key that
-         * closes the keyboard. 
-         */
-        /*
-        @Override
-        public boolean isInside(int x, int y) {
-            return super.isInside(x, codes[0] == KEYCODE_CANCEL ? y - 10 : y);
-        }
-       */
-        
+                
     }
 
 }

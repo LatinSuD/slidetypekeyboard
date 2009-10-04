@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2009 Alejandro Grijalba
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+
 package com.latinsud.android.slidetypekeyboard;
 
 import android.graphics.Canvas;
@@ -7,7 +24,10 @@ import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
-// Class for preview of keys
+/* Class that displays a popup preview of each key
+ *  It is shown when pressing a key, and hides when releasing the key.
+ */
+
 class TextDrawable extends Drawable {
 	int width;
 	int height; 
@@ -85,7 +105,7 @@ class TextDrawable extends Drawable {
 		//return 10;//width;
 	}
 	
-	// cada vez que se dibuja
+	// called each time it is drawn
 	@Override
 	public int getIntrinsicHeight() {
 		return (int)(key.height*verticalPadding);
@@ -96,15 +116,6 @@ class TextDrawable extends Drawable {
 		int kk=3+2;
 		return kk;
 	}
-
-	/*
-	@Override
-	public void   	  setBounds(int left, int top, int right, int bottom) {
-		int kk=3+2;
-		kk=kk+3;
-		//return kk;
-	}
-	*/	
 	
 	@Override
 	public void onBoundsChange(Rect newBounds) {

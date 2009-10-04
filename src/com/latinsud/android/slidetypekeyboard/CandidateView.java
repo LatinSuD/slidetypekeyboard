@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008-2009 Google Inc.
+ * Copyright (C) 2009 Alejandro Grijalba
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -31,6 +32,11 @@ import java.util.List;
 
 import com.latinsud.android.slidetypekeyboard.R;
 
+
+/*
+ * This class will display candidate words based on some dictionary
+ * (Feature currently not implemented!)
+ */
 public class CandidateView extends View {
 
     private static final int OUT_OF_BOUNDS = -1;

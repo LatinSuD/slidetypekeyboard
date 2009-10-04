@@ -3,6 +3,7 @@
 /* 
 **
 ** Copyright 2008, The Android Open Source Project
+** Copyright (C) 2009 Alejandro Grijalba
 **
 ** Licensed under the Apache License, Version 2.0 (the "License"); 
 ** you may not use this file except in compliance with the License. 
@@ -28,7 +29,7 @@
     <Row android:rowEdgeFlags="top"> 
         <Key android:codes="49" android:keyLabel="@string/symbols_for_1" 
         	android:horizontalGap="6%p" android:keyEdgeFlags="left"/>
-		<Key android:codes="50" android:keyLabel="@string/symbols_for_2"/>
+        <Key android:codes="50" android:keyLabel="@string/symbols_for_2"/>
         <Key android:codes="51" android:keyLabel="@string/symbols_for_3"/>        
         <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" 
                 android:keyWidth="15%p" android:keyEdgeFlags="right"

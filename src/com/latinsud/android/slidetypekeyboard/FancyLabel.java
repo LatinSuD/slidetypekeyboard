@@ -1,3 +1,20 @@
+/*
+ * Copyright (C) 2009 Alejandro Grijalba
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+
 package com.latinsud.android.slidetypekeyboard;
 
 import android.graphics.Canvas;
@@ -9,6 +26,14 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 
+
+/* This class draws our fancy keys.
+ * Each key has typically 5 characters layed out inside.
+ * There are several methods, each one implement a different look:
+ * 	- Numbers on the left
+ *  - Numbers in the center
+ *  - Numbers big behind
+ */
 
 class fancyLabelDraw extends Drawable {
 	int width;
@@ -281,9 +306,6 @@ float tMY0, tMX0;
 	/*
 	@Override
 	public void   	  setBounds(int left, int top, int right, int bottom) {
-		int kk=3+2;
-		kk=kk+3;
-		//return kk;
 	}
 	*/	
 	
