@@ -87,11 +87,13 @@ public class LatinKeyboardView extends KeyboardView {
 
     public LatinKeyboardView(Context context, AttributeSet attrs) {
       super(context, attrs);
+      this.setPreviewEnabled(false);
       //setProximityCorrectionEnabled(false);
     }
 
     public LatinKeyboardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.setPreviewEnabled(false);
         //setProximityCorrectionEnabled(false);
     }
         
@@ -164,16 +166,19 @@ public class LatinKeyboardView extends KeyboardView {
 					) {
 					lastDirection=direction;
 					downTime=me.getEventTime();
+					
+					/* Disabled. It made some keystrokes to get lost
 
     				// hack to force update of iconPreview
     				me.setLocation(0, 0);
     				super.onTouchEvent(me);
+    				*/
     				me.setLocation(downX, downY);    				    				
     			} else {
     				// cancel to prevent highliting when rolling over other keys
     				return true;
     			}
-    		} else if (act==android.view.MotionEvent.ACTION_UP) {
+    		} /* else if (act==android.view.MotionEvent.ACTION_UP) {
     			// simulate long press
 				if (me.getEventTime() - downTime > 800) {
 					Key theKey=null;
@@ -191,8 +196,8 @@ public class LatinKeyboardView extends KeyboardView {
 					}
 					
 					//return false;
-				}
-    		}
+				} 
+    		} */
     	}
     	
 		// after we return here the service will get notified, etc
