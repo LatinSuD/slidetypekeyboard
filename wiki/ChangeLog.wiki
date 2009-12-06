@@ -1,0 +1,5 @@
+#summary ChangeLog of releases.
+
+= 0.2.1 =
+
+  * Fixed bug #7 (Some keystrokes got lost)
