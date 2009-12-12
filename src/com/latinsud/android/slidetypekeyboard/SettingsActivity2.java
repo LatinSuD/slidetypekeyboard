@@ -19,12 +19,15 @@ package com.latinsud.android.slidetypekeyboard;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.view.KeyEvent;
 
 import com.latinsud.android.slidetypekeyboard.R;
 
+// We use 2 different SettingsActivity classes.
+//  One is called from the IME view, the other is called from the MainActivity.
+//  Doing it this way we do not mess with Activity Stack.
+
 // This is very simple. Android does it all from prefs.xml.
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity2 extends PreferenceActivity {
 	@Override
 	protected void onCreate(Bundle state) {
 		super.onCreate(state);

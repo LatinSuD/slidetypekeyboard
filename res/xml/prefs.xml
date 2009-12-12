@@ -23,7 +23,8 @@
 <ListPreference 
     android:defaultValue="0"
 	android:key="keyLayout" 
-	android:entries="@array/entries_list_preference" 
-	android:entryValues="@array/entryvalues_list_preference"
+	android:entries="@array/keyLayoutEntries" 
+	android:entryValues="@array/keyLayoutEntryValues"
 	android:title="@string/key_layout" android:summary="@string/key_layout_desc"/>    
+<ListPreference android:key="slideThreshold" android:entryValues="@array/slideThresholdEntryValues" android:entries="@array/slideThresholdEntries" android:summary="@string/slideThresholdDesc" android:title="@string/slideThresholdTitle" android:defaultValue="7"></ListPreference>
 </PreferenceScreen>

@@ -1,0 +1,49 @@
+<html>
+ <script>
+  var state=0;
+
+  // intializes animation timer
+  function ini() {
+    setInterval("periodic()",500);
+  }
+
+  // called regularly to perform animation  
+  function periodic() {
+    state = (state+1)%7;
+    animState=state+1;
+
+    // draw each state (except last one in which we make some pause)
+    if (animState <= 5)
+	    document.getElementById("im").src="img/anim"+ animState +".jpg";
+  }
+  
+ </script>
+ <body onLoad="ini()">
+  <h1>Letters &amp; Numbers</h1>
+  <center>
+   <img id="im" src="img/anim1.jpg"/>
+  </center>
+  Slide/swipe at different directions to get the different letters.
+  <br>Example:
+  <ul>
+  	<li>In key "2ABC" slide <b>left</b> to get <b>A</b>.</li>
+  	<li>In key "2ABC" slide <b>up</b> to get <b>B</b>.</li>
+  	<li>In key "2ABC" slide <b>right</b> to get <b>C</b>.</li>
+  	<li>In key "2ABC" just <b>click</b> to get <b>2</b>.</li>
+  </ul>
+  <hr>
+
+  <h1>Alternative symbols</h1>
+  	<li>Press and hold a key to get <b>international</b> characters (tildes, etc).</li>
+  	<li>Slide <i>ALT/shift</i> key <b>up</b> to get <b>uppercase</b> keyboard.</li>
+  	<li>Slide <i>ALT/shift</i> key <b>left</b> to get <b>symbols</b> keyboard.</li>
+  	<li>Slide <i>ALT/shift</i> key <b>down</b> to get <b>lowercase</b> keyboard.</li>
+
+  <hr>
+  <h1>Other features</h1>
+  <ul>
+  	<li>Press and hold <i>enter</i>/<i>search</i> key to display settings <b>menu</b>.</li>
+  </ul>
+
+ </body>
+</html>

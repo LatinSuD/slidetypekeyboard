@@ -18,11 +18,11 @@
 
 
 package com.latinsud.android.slidetypekeyboard;
-import java.util.List;
 
-import android.view.KeyEvent;
+
+import android.view.Display;
 import android.view.MotionEvent;
-
+import android.view.WindowManager;
 import android.content.Context;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.Keyboard.Key;
@@ -33,12 +33,14 @@ import android.util.AttributeSet;
  * It's main duty is to receive touch events.
  */
 public class LatinKeyboardView extends KeyboardView {
-
+	
     static final int KEYCODE_OPTIONS = -100;
     static int direction;
     
     static boolean sShiftState;
     static boolean sAltState;
+    
+    static int screenW, screenH;
     
     static long downTime=0;
         
@@ -52,7 +54,7 @@ public class LatinKeyboardView extends KeyboardView {
     	
     	return super.setShifted(sShiftState || sAltState);
     //	invalidate();
-//    	return sShiftState;
+    // 	return sShiftState;
     }
 
     public void setAlt(boolean newState) {
@@ -84,16 +86,30 @@ public class LatinKeyboardView extends KeyboardView {
     	}
     }
     
-
+    // calculate slide threshold
+    public void calcMinSlide() {
+    	int min = Math.min(screenW, screenH);
+    	minSlide=(min*SlideTypeKeyboard.slideThreshold)/100;
+    }
+    
+    
     public LatinKeyboardView(Context context, AttributeSet attrs) {
       super(context, attrs);
       this.setPreviewEnabled(false);
+      Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+      screenW = display.getWidth();
+      screenH = display.getHeight();
       //setProximityCorrectionEnabled(false);
+      
     }
 
     public LatinKeyboardView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         this.setPreviewEnabled(false);
+    	Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+    	screenW = display.getWidth();
+    	screenH = display.getHeight();
+    	
         //setProximityCorrectionEnabled(false);
     }
         
@@ -120,11 +136,14 @@ public class LatinKeyboardView extends KeyboardView {
     
     public float downX;
     public float downY;
-    public static float minSlide=10;
+    public static float minSlide=0;
     private int lastDirection=-2;
     
     
     public boolean onTouchEvent(MotionEvent me) {
+        if (minSlide==0)
+        	  calcMinSlide();
+
     	int act = me.getAction();
     	if (act==android.view.MotionEvent.ACTION_DOWN) {
     		//keysAtOnce=0;
@@ -154,7 +173,7 @@ public class LatinKeyboardView extends KeyboardView {
     		}
 
     		if (act==android.view.MotionEvent.ACTION_MOVE) {
-				/* TODO De momento lo dejamos asi */
+				/* TODO Leave it like this by the moment */
     			// allow redraw only on slidable keys
     			//  except shift, which would have side effects
 				if (lastDirection!=direction && (
@@ -166,9 +185,9 @@ public class LatinKeyboardView extends KeyboardView {
 					) {
 					lastDirection=direction;
 					downTime=me.getEventTime();
-					
-					/* Disabled. It made some keystrokes to get lost
 
+					/*
+					 * Disabled. It made some keystrokes to get lost
     				// hack to force update of iconPreview
     				me.setLocation(0, 0);
     				super.onTouchEvent(me);
@@ -178,7 +197,8 @@ public class LatinKeyboardView extends KeyboardView {
     				// cancel to prevent highliting when rolling over other keys
     				return true;
     			}
-    		} /* else if (act==android.view.MotionEvent.ACTION_UP) {
+    		} /*else if (act==android.view.MotionEvent.ACTION_UP) {
+    			
     			// simulate long press
 				if (me.getEventTime() - downTime > 800) {
 					Key theKey=null;
@@ -195,9 +215,11 @@ public class LatinKeyboardView extends KeyboardView {
 						this.onLongPress(theKey);
 					}
 					
+					
 					//return false;
-				} 
-    		} */
+				}
+    		}
+    		*/
     	}
     	
 		// after we return here the service will get notified, etc

@@ -16,10 +16,41 @@
 -->
 
 <resources>
-    <string-array name="entries_list_preference">
+    <string-array name="keyLayoutEntries">
     	<item>Número detrás</item>
         <item>Número a la izquierda</item>
         <item>Número centrado</item>
     </string-array>
+
+
+    
+    <string-array name="main_menu">
+    	<item>Ayuda</item>
+    	<item>Ajustes</item>
+    	<item>Habilitar</item>
+    	<item>Acerca de...</item>
+    </string-array>
+
+    <string-array name="main_menu_desc">
+    	<item>Tutorial</item>
+    	<item>Ajustes de SlideType Keyboard</item>
+    	<item>Comprobar que esté habilitado</item>
+    	<!-- Version number added by code -->
+    	<item>Versión</item>
+    </string-array>
+
+
+   <string-array name="about_menu">
+    	<item>ChangeLog</item>
+    	<item>Licencia</item>
+    	<item>Email al autor</item>
+    </string-array>
+
+    <string-array name="about_menu_desc">
+    	<item>Ver cambios recientes (en línea)</item>
+    	<item>Ver Licencia Apache 2.0 (inglés)</item>
+    	<item>Enviarme un email</item>
+    </string-array>
     
 </resources>
+

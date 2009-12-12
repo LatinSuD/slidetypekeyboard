@@ -16,16 +16,63 @@
 -->
 
 <resources>
-    <string-array name="entries_list_preference">
+    <string-array name="keyLayoutEntries">
         <item>Number behind</item>
         <item>Number on the left</item>
         <item>Number centered</item>
     </string-array>
-
-    <string-array name="entryvalues_list_preference">
+    <string-array name="keyLayoutEntryValues">
         <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <string-array name="slideThresholdEntries">
+        <item>3%</item>
+        <item>5%</item>
+        <item>7%</item>
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+    </string-array>
+    <string-array name="slideThresholdEntryValues">
+        <item>3</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+    </string-array>
+
+
     
+    <string-array name="main_menu">
+    	<item>Help</item>
+    	<item>Settings</item>
+    	<item>Enable</item>
+    	<item>About</item>
+    </string-array>
+
+    <string-array name="main_menu_desc">
+    	<item>Tutorial</item>
+    	<item>SlideType Keyboard Settings</item>
+    	<item>Check that SlideType is enabled</item>
+    	<!-- Version number added by code -->
+    	<item>Version</item>
+    </string-array>
+
+
+   <string-array name="about_menu">
+    	<item>ChangeLog</item>
+    	<item>License</item>
+    	<item>Email author</item>
+    </string-array>
+
+    <string-array name="about_menu_desc">
+    	<item>View recent changes (online)</item>
+    	<item>View Apache 2.0 License</item>
+    	<item>Send me an email</item>
+    </string-array>
+
+
 </resources>
