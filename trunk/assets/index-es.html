@@ -1,0 +1,49 @@
+<html>
+ <script>
+  var state=0;
+
+  // intializes animation timer
+  function ini() {
+    setInterval("periodic()",500);
+  }
+
+  // called regularly to perform animation  
+  function periodic() {
+    state = (state+1)%7;
+    animState=state+1;
+
+    // draw each state (except last one in which we make some pause)
+    if (animState <= 5)
+	    document.getElementById("im").src="img/anim"+ animState +".jpg";
+  }
+  
+ </script>
+ <body onLoad="ini()">
+  <h1>Letras y N&uacute;meros</h1>
+  <center>
+   <img id="im" src="img/anim1.jpg"/>
+  </center>
+  Deslice en distintas direcciones para obtener las distintas letras.
+  <br>Ejemplo:
+  <ul>
+  	<li>En la tecla "2ABC" deslice hacia la <b>izquierda</b> para escribir la <b>A</b>.</li>
+  	<li>En la tecla "2ABC" deslice hacia <b>arriba</b> para escribir la  <b>B</b>.</li>
+  	<li>En la tecla "2ABC" deslice hacia la <b>derecha</b> para escribir la  <b>C</b>.</li>
+  	<li>En la tecla "2ABC" haz <b>click</b> para escribir <b>2</b>.</li>
+  </ul>
+  <hr>
+
+  <h1>S&iacute;mbolos Alternativos</h1>
+  	<li>Deje pulsada una tecla para escribir caracteres <b>internacionales</b> (tildes, etc).</li>
+  	<li>Deslice la tecla <i>ALT/shift</i> hacia <b>arriba</b> para cambiar al teclado de <b>may&uacute;sculas</b>.</li>
+  	<li>Deslice la tecla <i>ALT/shift</i> hacia la <b>izquierda</b> para cambiar al teclado de <b>s&iacute;mbolos</b>.</li>
+  	<li>Deslice la tecla <i>ALT/shift</i> hacia <b>abajo</b> para cambiar al teclado de <b>min&uacute;sculas</b>.</li>
+
+  <hr>
+  <h1>Otras Caracter&iacute;sticas</h1>
+  <ul>
+  	<li>Deje pulsada la tecla del icono <i>enter</i>/<i>buscar</i> para ir al <b>men&uacute;</b> de configuraci&oacute;n.</li>
+  </ul>
+
+ </body>
+</html>

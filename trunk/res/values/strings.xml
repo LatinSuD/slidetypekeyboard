@@ -26,13 +26,21 @@
     <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|&quot;</string>
     
     <string name="ime_settings">STK Settings</string>
+    <string name="selectIME">Select Input Method</string>
+    <string name="htmlLang">index</string>    
+    <string name="key_layout">Key Layout</string>
+    <string name="key_layout_desc">Layout for labels on each key</string>
+    <string name="slideThresholdTitle">Slide Threshold</string>
+    <string name="slideThresholdDesc">Minimum size of a slide (respect of screen size)</string>
+    <string name="pleaseEnable">Please enable SlideType in settings and press back</string>
+	<string name="pleaseSelect">Please check that SlideType is the current keyboard</string>
+    
+
     
     <!-- Popup / Alternate keys for qwerty keyboard -->
     <string name="label_go_key">Go</string>
     <string name="label_next_key">Next</string>
     <string name="label_send_key">Send</string>
-    <string name="key_layout">Key Layout</string>
-    <string name="key_layout_desc">Layout for labels on each key</string>
     <string name="alternates_for_2">áàâåäãąæćčç</string>
     <string name="alternates_for_3">ďéèêěëę</string>
     <string name="alternates_for_4">íìîïı</string>

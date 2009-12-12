@@ -17,6 +17,10 @@
 
 package com.latinsud.android.slidetypekeyboard;
 
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
@@ -28,9 +32,13 @@ import android.text.method.MetaKeyKeyListener;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputMethodManager;
+
 
 
 import java.util.ArrayList;
@@ -53,6 +61,7 @@ public class SlideTypeKeyboard extends InputMethodService
 
     static int pressedCode;
     static int keyLayout;
+    static int slideThreshold;
     
     /*
     @Override
@@ -60,12 +69,54 @@ public class SlideTypeKeyboard extends InputMethodService
     	return true;
     }
     */
+    
+    private AlertDialog mOptionsDialog;
+
+    private void showOptionsMenu() {
+    	if (mOptionsDialog == null) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        //builder.setIcon(R.drawable.ic_dialog_keyboard);
+        builder.setNegativeButton(android.R.string.cancel, null);
+        CharSequence itemSettings = getString(R.string.ime_settings);
+        CharSequence itemInputMethod = getString(R.string.selectIME);
+        builder.setItems(new CharSequence[] {
+                itemSettings, itemInputMethod},
+                new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface di, int position) {
+                di.dismiss();
+                switch (position) {
+                    case 0:
+                        launchSettings();
+                        break;
+                    case 1:
+                    	InputMethodManager inputManager = (InputMethodManager) getSystemService (Context.INPUT_METHOD_SERVICE);
+                        inputManager.showInputMethodPicker();
+                        break;
+                }
+            }
+        });
+        builder.setTitle(getResources().getString(R.string.ime_name));
+        mOptionsDialog = builder.create();
+    	}
+        
+        Window window = mOptionsDialog.getWindow();
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.token = mInputView.getWindowToken();
+        lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG;
+        window.setAttributes(lp);
+        window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
+        mOptionsDialog.show();
+    }
+ 
 
     public void launchSettings() {
         handleClose();
+        
         Intent intent = new Intent();
-        intent.setClass(SlideTypeKeyboard.this, SettingsActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setClass(SlideTypeKeyboard.this, SettingsActivity2.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
     
@@ -172,6 +223,9 @@ public class SlideTypeKeyboard extends InputMethodService
         SharedPreferences mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String customPref = mySharedPreferences.getString("keyLayout", "0");
         keyLayout = Integer.valueOf(customPref);
+        customPref = mySharedPreferences.getString("slideThreshold", "7");
+        slideThreshold = Integer.valueOf(customPref);
+        LatinKeyboardView.minSlide=0; // force re-calc
 
         
         //android.os.Debug.waitForDebugger();
@@ -476,6 +530,7 @@ public class SlideTypeKeyboard extends InputMethodService
             mComposing.setLength(0);
             updateCandidates();
         }
+        
     }
 
     /**
@@ -562,7 +617,7 @@ public class SlideTypeKeyboard extends InputMethodService
             handleClose();
             return;
         } else if (primaryCode == LatinKeyboardView.KEYCODE_OPTIONS) {
-        	launchSettings();                         
+        	showOptionsMenu();//launchSettings();                         
         } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE
                 && mInputView != null) {
             Keyboard current = mInputView.getKeyboard();
@@ -766,11 +821,16 @@ public class SlideTypeKeyboard extends InputMethodService
     }
     */
     
+    // Check that our connection hasnt got closed (workaround for a kind of bug)
     private void handleClose() {
+    	setCandidatesViewShown(false);
+    	
     	InputConnection ic=getCurrentInputConnection();
     	if (ic != null)
     		commitTyped(ic);
         requestHideSelf(0);
+
+        android.util.Log.w("slidetype","Connection died! Hiding ourselves");
         mInputView.closing();
     }
 

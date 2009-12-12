@@ -24,8 +24,12 @@
 
     <!-- Symbols that are commonly considered word separators in this language -->
     <string name="word_separators">\u0020.,;:!?\n()[]*&amp;@{}/&lt;&gt;_+=|&quot;</string>
+	<string name="htmlLang">index-es</string>
 
 	<string name="ime_settings">Preferencias STK</string>
+    <string name="selectIME">Método de introducción de texto</string>
+    <string name="pleaseEnable">Por favor, habilite SlideType y pulse atrás</string>
+	<string name="pleaseSelect">Por favor, asegúrese de que SlideType está seleccionado como teclado por defecto</string>
     
     <string name="letters_for_6">6mno\u00f1</string>
     
@@ -35,4 +39,7 @@
     <string name="label_send_key">Enviar</string>
 	<string name="key_layout">Disposición de tecla</string>
 	<string name="key_layout_desc">Disposición del texto en las teclas</string>
+    <string name="slideThresholdTitle">Umbral de deslizamiento</string>
+    <string name="slideThresholdDesc">Longitud mínima de un deslizamiento (respecto del tamaño de pantalla)</string>
+	
 </resources>

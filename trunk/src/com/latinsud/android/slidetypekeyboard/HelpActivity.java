@@ -14,20 +14,22 @@
  * the License.
  */
 
-
 package com.latinsud.android.slidetypekeyboard;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.view.KeyEvent;
+import android.webkit.WebView;
 
-import com.latinsud.android.slidetypekeyboard.R;
 
-// This is very simple. Android does it all from prefs.xml.
-public class SettingsActivity extends PreferenceActivity {
+public class HelpActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle state) {
 		super.onCreate(state);
-		addPreferencesFromResource(R.xml.prefs);
+		
+		WebView www = new WebView(this);
+        www.getSettings().setJavaScriptEnabled(true);
+        www.loadUrl("file:///android_asset/"+ getResources().getString(R.string.htmlLang) +".html");
+        
+        setContentView(www);
 	}
 }
