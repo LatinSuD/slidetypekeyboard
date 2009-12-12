@@ -1,5 +1,11 @@
 #summary ChangeLog of releases.
 
+= 0.3 (2009-12-12) =
+  * Add launcher & help
+  * Add slide threshold setting (to difference between click and slide)
+  * Fix remaining bar bug #8 (hopefully)
+
+
 = 0.2.1 (2009-11-27) =
 
   * Fixed bug #7 (Some keystrokes got lost)
