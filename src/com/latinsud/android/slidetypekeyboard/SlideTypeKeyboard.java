@@ -526,7 +526,9 @@ public class SlideTypeKeyboard extends InputMethodService
     		return;
     	}
         if (mComposing.length() > 0 && inputConnection!=null) {
-            inputConnection.commitText(mComposing, mComposing.length());
+        	inputConnection.finishComposingText();
+        	// commitText() found to be evil when user adds text inside an existing word
+            //inputConnection.commitText(mComposing, mComposing.length());
             mComposing.setLength(0);
             updateCandidates();
         }

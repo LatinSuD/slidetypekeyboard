@@ -19,7 +19,6 @@ package com.latinsud.android.slidetypekeyboard;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.view.KeyEvent;
 
 import com.latinsud.android.slidetypekeyboard.R;
 
