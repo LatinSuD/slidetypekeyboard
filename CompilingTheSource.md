@@ -1,0 +1,7 @@
+# Instructions #
+
+  * Get Android SDK: http://developer.android.com/sdk/index.html
+  * Have a SVN client installed and use it to download source code: http://code.google.com/p/slidetypekeyboard/source/checkout
+  * In Eclipse create a new Android Project, then select "From existing files", and select the directory where you downloaded source code.
+  * Click run to open phone emulator. It will also generate slidetypekeyboard.apk in bin/ subdirectory.
+  * To test in emulator, follow standard instructions for configuring the application. http://slidetype.blogspot.com/2009/08/howto-install-configure.html
