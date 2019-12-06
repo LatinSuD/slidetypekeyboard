@@ -7,6 +7,9 @@ An original virtual keyboard for Android. Each letter is typed by sliding keys i
 
 Download it from Play using your Android phone, or use SVN to get source code if you want to compile it.
 
+Online simulator of the keyboard: https://www.latinsud.com/pub/slideType/
+
+
 Blog: http://slidetype.blogspot.com/
 
 Play: https://play.google.com/store/apps/details?id=com.latinsud.android.slidetypekeyboard
