@@ -580,9 +580,16 @@ public class SlideTypeKeyboard extends InputMethodService
      * Helper to send a character to the editor as raw key events.
      */
     private void sendKey(int keyCode) {
+        final EditorInfo editorInfo = getCurrentInputEditorInfo();
+        final int imeOptionsActionId = InputTypeUtils.getImeOptionsActionIdFromEditorInfo(editorInfo);
         switch (keyCode) {
             case '\n':
-                keyDownUp(KeyEvent.KEYCODE_ENTER);
+                if (imeOptionsActionId == InputTypeUtils.IME_ACTION_CUSTOM_LABEL)
+                    getCurrentInputConnection().performEditorAction(editorInfo.actionId);
+                else if (imeOptionsActionId != EditorInfo.IME_ACTION_NONE)
+                    getCurrentInputConnection().performEditorAction(imeOptionsActionId);
+                else
+                    keyDownUp(KeyEvent.KEYCODE_ENTER);
                 break;
             default:
                 if (keyCode >= '0' && keyCode <= '9') {
